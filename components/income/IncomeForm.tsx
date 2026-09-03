@@ -99,11 +99,27 @@ export function IncomeForm({
           <option key={m.id} value={m.id}>{m.full_name}</option>
         ))}
       </Select>
-      <Select label="Account" value={accountId} onChange={(e) => setAccountId(e.target.value)} error={errors.accountId}>
-        {accounts.map((a) => (
-          <option key={a.id} value={a.id}>{a.account_name} ({a.account_type})</option>
-        ))}
-      </Select>
+      {accounts.length === 0 ? (
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-300">
+          <p className="text-sm font-medium">No accounts found</p>
+          <p className="mt-1 text-xs text-amber-700 dark:text-amber-400">
+            You need to create at least one account (e.g., Cash, Bank, GPay) before adding income.
+          </p>
+          <Button
+            type="button"
+            className="mt-3 text-xs"
+            onClick={() => router.push("/accounts/new")}
+          >
+            + Create Account First
+          </Button>
+        </div>
+      ) : (
+        <Select label="Account" value={accountId} onChange={(e) => setAccountId(e.target.value)} error={errors.accountId}>
+          {accounts.map((a) => (
+            <option key={a.id} value={a.id}>{a.account_name} ({a.account_type})</option>
+          ))}
+        </Select>
+      )}
       <Input label="Date" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
       <Textarea label="Description (optional)" value={description} onChange={(e) => setDescription(e.target.value)} />
       <div className="mt-2 flex gap-3">
