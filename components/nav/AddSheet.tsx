@@ -2,11 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import { Modal } from "@/components/ui/Modal";
-import { Receipt, Wallet, Landmark, CalendarClock } from "lucide-react";
+import { Receipt, Wallet, Landmark, CalendarClock, WalletCards } from "lucide-react";
 
 const options = [
   { href: "/expenses/new", label: "Add Expense", icon: Receipt, tone: "text-red-600 bg-red-50 dark:bg-red-950/40" },
   { href: "/income/new", label: "Add Income", icon: Wallet, tone: "text-brand-700 bg-brand-50 dark:bg-brand-950/40" },
+  { href: "/accounts/new", label: "Add Account", icon: WalletCards, tone: "text-blue-600 bg-blue-50 dark:bg-blue-950/40" },
   { href: "/loans/new", label: "Add Loan", icon: Landmark, tone: "text-amber-600 bg-amber-50 dark:bg-amber-950/40" },
   { href: "/payments", label: "Add Payment", icon: CalendarClock, tone: "text-violet-600 bg-violet-50 dark:bg-violet-950/40" },
 ];

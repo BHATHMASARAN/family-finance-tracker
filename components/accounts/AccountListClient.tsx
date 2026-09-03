@@ -57,7 +57,7 @@ export function AccountListClient({ accounts, members }: { accounts: Account[]; 
         <p className="mt-1 text-xs text-brand-100">Across {accounts.filter((a) => a.is_active).length} active accounts</p>
       </Card>
 
-      <div className="hidden justify-end md:flex">
+      <div className="flex justify-end">
         <Link href="/accounts/new"><Button><Plus size={18} /> Add Account</Button></Link>
       </div>
 
